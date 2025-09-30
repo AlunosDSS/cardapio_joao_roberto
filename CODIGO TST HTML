@@ -3,58 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cardápio Institucional</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-    header {
-      background-color: #006747;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-    }
-    .container {
-      width: 80%;
-      max-width: 800px;
-      margin: 20px auto;
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-    }
-    h1 {
-      color: #ffcc00;
-      font-size: 2.5em;
-      margin: 0;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-    .category {
-      margin-top: 30px;
-    }
-    .category h2 {
-      background-color: #ffcc00;
-      color: #006747;
-      padding: 10px;
-      border-radius: 5px;
-      margin-bottom: 15px;
-    }
-    .item {
-      display: flex;
-      justify-content: space-between;
-      padding: 10px 0;
-      border-bottom: 1px solid #ddd;
-      font-size: 1.1em;
-    }
-    .item:last-child {
-      border-bottom: none;
-    }
-  </style>
+  <title>Cardápio Institucional Dinâmico</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
@@ -63,46 +13,108 @@
 </header>
 
 <div class="container">
+
   <div class="category">
     <h2>Pratos Principais</h2>
+
     <div class="item">
-      <span>Arroz com Feijão</span>
+      <button class="btn-item">Arroz com Feijão</button>
       <span>✔</span>
+      <div class="ingredients hidden">
+        <ul>
+          <li>Arroz branco</li>
+          <li>Feijão preto</li>
+          <li>Alho e cebola</li>
+          <li>Sal a gosto</li>
+        </ul>
+      </div>
     </div>
+
     <div class="item">
-      <span>Frango Grelhado</span>
+      <button class="btn-item">Frango Grelhado</button>
       <span>✔</span>
+      <div class="ingredients hidden">
+        <ul>
+          <li>Peito de frango</li>
+          <li>Azeite</li>
+          <li>Ervas finas</li>
+          <li>Sal e pimenta</li>
+        </ul>
+      </div>
     </div>
+
     <div class="item">
-      <span>Salada de Verduras</span>
+      <button class="btn-item">Salada de Verduras</button>
       <span>✔</span>
+      <div class="ingredients hidden">
+        <ul>
+          <li>Alface</li>
+          <li>Tomate</li>
+          <li>Cenoura ralada</li>
+          <li>Azeite e limão</li>
+        </ul>
+      </div>
     </div>
   </div>
 
   <div class="category">
     <h2>Sobremesas</h2>
+
     <div class="item">
-      <span>Pudim de Leite</span>
+      <button class="btn-item">Pudim de Leite</button>
       <span>✔</span>
+      <div class="ingredients hidden">
+        <ul>
+          <li>Leite condensado</li>
+          <li>Leite</li>
+          <li>Ovos</li>
+          <li>Açúcar</li>
+        </ul>
+      </div>
     </div>
+
     <div class="item">
-      <span>Gelatina Colorida</span>
+      <button class="btn-item">Gelatina Colorida</button>
       <span>✔</span>
+      <div class="ingredients hidden">
+        <ul>
+          <li>Gelatina sabor morango</li>
+          <li>Gelatina sabor limão</li>
+          <li>Água</li>
+        </ul>
+      </div>
     </div>
   </div>
 
   <div class="category">
     <h2>Bebidas</h2>
+
     <div class="item">
-      <span>Suco de Laranja</span>
+      <button class="btn-item">Suco de Laranja</button>
       <span>✔</span>
+      <div class="ingredients hidden">
+        <ul>
+          <li>Laranjas frescas</li>
+          <li>Açúcar (opcional)</li>
+          <li>Gelo</li>
+        </ul>
+      </div>
     </div>
+
     <div class="item">
-      <span>Água Mineral</span>
+      <button class="btn-item">Água Mineral</button>
       <span>✔</span>
+      <div class="ingredients hidden">
+        <ul>
+          <li>Água purificada</li>
+        </ul>
+      </div>
     </div>
   </div>
+
 </div>
 
+<script src="script.js"></script>
 </body>
 </html>
+ 
