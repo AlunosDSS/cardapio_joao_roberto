@@ -45,12 +45,46 @@ h1 {
 
 .item {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 10px 0;
   border-bottom: 1px solid #ddd;
   font-size: 1.1em;
+  flex-wrap: wrap;
 }
 
 .item:last-child {
   border-bottom: none;
+}
+
+.btn-item {
+  background: none;
+  border: none;
+  color: #006747;
+  font-weight: bold;
+  font-size: 1.1em;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+  flex: 1 1 auto;
+}
+
+.btn-item:hover {
+  text-decoration: underline;
+}
+
+.ingredients {
+  width: 100%;
+  padding-left: 15px;
+  margin-top: 5px;
+  color: #555;
+}
+
+.hidden {
+  display: none;
+}
+
+.ingredients ul {
+  margin: 5px 0 15px 20px;
+  padding: 0;
 }
