@@ -1,0 +1,129 @@
+(function () {
+  const dayNamesPT = [
+    "Domingo",
+    "Segunda-feira",
+    "Terça-feira",
+    "Quarta-feira",
+    "Quinta-feira",
+    "Sexta-feira",
+    "Sábado"
+  ];
+  const keys = [
+    "sunday",
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday"
+  ];
+  const datePicker = document.getElementById("datePicker");
+  const menuContent = document.getElementById("menuContent");
+  const dayNameEl = document.getElementById("dayName");
+  const dateText = document.getElementById("dateText");
+
+  // Dados embutidos do cardápio (sem JSON externo)
+  const menus = {
+    monday: {
+      date_note: "",
+      breakfast: ["Pão francês", "Manteiga", "Suco de laranja"],
+      lunch: ["Arroz", "Feijão", "Frango grelhado", "Salada de alface"],
+      snack: ["Biscoito caseiro", "Leite"]
+    },
+    tuesday: {
+      date_note: "",
+      breakfast: ["Cuscuz", "Leite com achocolatado"],
+      lunch: ["Macarrão ao molho", "Carne moída", "Salada de tomate"],
+      snack: ["Banana", "Iogurte"]
+    },
+    wednesday: {
+      date_note: "",
+      breakfast: ["Pão de queijo", "Suco"],
+      lunch: ["Arroz", "Lentilha", "Peixe assado", "Cenoura ralada"],
+      snack: ["Sanduíche natural", "Suco"]
+    },
+    thursday: {
+      date_note: "",
+      breakfast: ["Tapioca", "Chá"],
+      lunch: ["Arroz", "Feijoada light", "Farofa", "Couve"],
+      snack: ["Maçã", "Bolo caseiro"]
+    },
+    friday: {
+      date_note: "",
+      breakfast: ["Pão integral", "Queijo", "Suco"],
+      lunch: ["Arroz", "Feijão", "Bife acebolado", "Salada mista"],
+      snack: ["Pipoca", "Leite"]
+    },
+    saturday: {
+      date_note: "Fim de semana - cardápio reduzido",
+      breakfast: ["Pão", "Geleia", "Suco"],
+      lunch: ["Arroz", "Frango desfiado", "Salada"],
+      snack: ["Fruta da estação"]
+    },
+    sunday: {
+      date_note: "Fim de semana - recesso escolar",
+      breakfast: ["—"],
+      lunch: ["—"],
+      snack: ["—"]
+    }
+  };
+
+  function showMenuForDate(d) {
+    const weekday = d.getDay(); // 0-6 (domingo-sábado)
+    const key = keys[weekday];
+    const data = menus[key];
+    const prettyDate = d.toLocaleDateString("pt-BR", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric"
+    });
+
+    dayNameEl.textContent = dayNamesPT[weekday];
+    dateText.textContent =
+      prettyDate + (data.date_note ? " — " + data.date_note : "");
+
+    if (!data) {
+      menuContent.innerHTML =
+        '<p class="empty">Cardápio não disponível para este dia.</p>';
+      return;
+    }
+
+    const buildList = (title, arr) => {
+      if (!arr || arr.length === 0)
+        return `<h3>${title}</h3><p class="empty">Não informado</p>`;
+      if (arr.length === 1 && arr[0] === "—")
+        return `<h3>${title}</h3><p class="empty">—</p>`;
+      const items = arr.map((it) => `<li>${escapeHtml(it)}</li>`).join("");
+      return `<h3>${title}</h3><ul>${items}</ul>`;
+    };
+
+    const html = `
+      ${buildList("Café da manhã", data.breakfast)}
+      ${buildList("Almoço", data.lunch)}
+      ${buildList("Lanche", data.snack)}
+    `;
+    menuContent.innerHTML = html;
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, (c) => {
+      return {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      }[c];
+    });
+  }
+
+  // Inicia com data de hoje e atualiza o input
+  const today = new Date();
+  const pad = (n) => String(n).padStart(2, "0");
+  const iso = `${today.getFullYear()}-${pad(today.getMonth() + 1)}-${pad(
+    today.getDate()
+  )}`;
+  datePicker.value = iso;
+  showMenuForDate(today);
+
+  datePicker.addEventListener("chan
