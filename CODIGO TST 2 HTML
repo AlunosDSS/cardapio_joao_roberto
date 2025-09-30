@@ -1,0 +1,24 @@
+<div class="container">
+  <header>
+    <h1>Cardápio da Escola JRM</h1>
+    <div class="controls">
+      <label for="datePicker" class="sr-only">Escolha a data</label>
+      <input type="date" id="datePicker" aria-label="Selecionar data" />
+    </div>
+  </header>
+
+  <div class="card" id="menuCard" role="region" aria-live="polite">
+    <div class="meta">
+      <div class="day-badge" id="dayName">—</div>
+      <div id="dateText" class="date-text">Escolha uma data ou use hoje</div>
+    </div>
+
+    <div id="menuContent">
+      <p class="empty">Carregando cardápio...</p>
+    </div>
+
+    <div class="footer">
+      Dados: cardápio embutido no código JS.
+    </div>
+  </div>
+</div>
