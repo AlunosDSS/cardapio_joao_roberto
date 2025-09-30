@@ -1,1 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cardápio Institucional</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background-color: #006747;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+    .container {
+      width: 80%;
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+    h1 {
+      color: #ffcc00;
+      font-size: 2.5em;
+      margin: 0;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .category {
+      margin-top: 30px;
+    }
+    .category h2 {
+      background-color: #ffcc00;
+      color: #006747;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
+    .item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+      font-size: 1.1em;
+    }
+    .item:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Cardápio Institucional</h1>
+</header>
+
+<div class="container">
+  <div class="category">
+    <h2>Pratos Principais</h2>
+    <div class="item">
+      <span>Arroz com Feijão</span>
+      <span>✔</span>
+    </div>
+    <div class="item">
+      <span>Frango Grelhado</span>
+      <span>✔</span>
+    </div>
+    <div class="item">
+      <span>Salada de Verduras</span>
+      <span>✔</span>
+    </div>
+  </div>
+
+  <div class="category">
+    <h2>Sobremesas</h2>
+    <div class="item">
+      <span>Pudim de Leite</span>
+      <span>✔</span>
+    </div>
+    <div class="item">
+      <span>Gelatina Colorida</span>
+      <span>✔</span>
+    </div>
+  </div>
+
+  <div class="category">
+    <h2>Bebidas</h2>
+    <div class="item">
+      <span>Suco de Laranja</span>
+      <span>✔</span>
+    </div>
+    <div class="item">
+      <span>Água Mineral</span>
+      <span>✔</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
 
