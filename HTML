@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cardápio Refeição Escolar - JRM</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Cardápio Refeição Escolar - JRM</h1>
+    <button id="darkmode-btn" title="Alternar tema">
+      <span id="icon-tema" class="material-icons">dark_mode</span>
+    </button>
+    <button id="logout-btn" title="Sair" style="display:none;">Sair</button>
+  </header>
+
+  <!-- Login e Registro -->
+  <section id="login-container" class="login-container">
+    <div class="login-toggle">
+      <button id="btn-login" class="active">Login</button>
+      <button id="btn-register">Registrar</button>
+    </div>
+    <form id="login-form" class="form active">
+      <label for="login-username">Usuário:</label>
+      <input type="text" id="login-username" required />
+      <label for="login-password">Senha:</label>
+      <input type="password" id="login-password" required />
+      <button type="submit">Entrar</button>
+    </form>
+    <form id="register-form" class="form">
+      <label for="register-username">Usuário:</label>
+      <input type="text" id="register-username" required />
+      <label for="register-password">Senha:</label>
+      <input type="password" id="register-password" required />
+      <label for="register-password-confirm">Confirmar senha:</label>
+      <input type="password" id="register-password-confirm" required />
+      <button type="submit">Registrar</button>
+    </form>
+  </section>
+
+  <!-- Aplicação principal -->
+  <main id="app-container" style="display:none;" class="container">
+    <p id="data-atual"></p>
+
+    <section id="cardapio-dia" class="cardapio">
+      <h2>Cardápio do dia</h2>
+      <ul id="itens-cardapio-dia"></ul>
+    </section>
+
+    <button id="toggle-btn" class="toggle-btn">Ver semana inteira</button>
+
+    <section id="cardapio-semana" class="cardapio" style="display:none;">
+      <h2>Cardápio da semana</h2>
+      <div id="semana-container"></div>
+    </section>
+
+    <!-- Painel Admin -->
+    <section id="admin-panel" style="display:none;">
+      <h2>Painel Admin - Editar Cardápio</h2>
+      <form id="admin-form">
+        <div id="inputs-semana"></div>
+        <button type="submit">Salvar Cardápio</button>
+      </form>
+    </section>
+
+    <!-- Avaliações -->
+    <section id="avaliacao-section">
+      <h2>Avalie o cardápio</h2>
+      <form id="avaliacao-form">
+        <label for="avaliacao-nota">Nota:</label>
+        <select id="avaliacao-nota" required>
+          <option value="" disabled selected>Selecione</option>
+          <option value="1">1 ⭐</option>
+          <option value="2">2 ⭐</option>
+          <option value="3">3 ⭐</option>
+          <option value="4">4 ⭐</option>
+          <option value="5">5 ⭐</option>
+        </select>
+        <label for="avaliacao-comentario">Comentário (opcional):</label>
+        <textarea id="avaliacao-comentario" rows="3" maxlength="200" placeholder="Deixe seu comentário"></textarea>
+        <button type="submit">Enviar Avaliação</button>
+      </form>
+      <ul id="avaliacoes-ul"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
